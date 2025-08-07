@@ -10,8 +10,9 @@ const getTimeOfDayGreeting = (): string => {
   return 'Good evening';
 };
 
-const formatMessageTime = (date: Date): string => {
-  return date.toLocaleTimeString('en-US', { 
+const formatMessageTime = (date: Date | string): string => {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  return dateObj.toLocaleTimeString('en-US', { 
     hour: 'numeric', 
     minute: '2-digit',
     hour12: true 
