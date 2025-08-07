@@ -42,6 +42,10 @@
     --danger: 0 84% 60%;
     --danger-foreground: 0 0% 98%;
     
+    /* Tailwind Compatibility */
+    --border: 220 13% 91%;
+    --ring: 220 13% 18%;
+    
     /* Effects */
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -106,6 +110,10 @@
     --danger: 0 63% 31%;
     --danger-foreground: 210 40% 98%;
     
+    /* Tailwind Compatibility */
+    --border: 215 25% 20%;
+    --ring: 215 20% 65%;
+    
     /* Effects - Adjusted for dark mode */
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
@@ -123,7 +131,7 @@
 
 @layer base {
   * {
-    border-color: hsl(var(--input-border));
+    @apply border-border;
   }
 
   body {
@@ -285,15 +293,5 @@
   }
   to {
     transform: translateX(-100%);
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 }

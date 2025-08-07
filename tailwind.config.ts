@@ -19,6 +19,10 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Tailwind Compatibility
+				border: 'hsl(var(--border))',
+				ring: 'hsl(var(--ring))',
+				
 				// Core semantic colors
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
