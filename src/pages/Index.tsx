@@ -1,13 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import { ChatProvider, useChatContext } from '../contexts/ChatContext';
+import { Sidebar } from '../components/Sidebar';
+import { ChatArea } from '../components/ChatArea';
+import { Dashboard } from '../components/Dashboard';
+import { ThemeToggle } from '../components/ThemeToggle';
+
+const AppContent: React.FC = () => {
+  const { state } = useChatContext();
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="flex">
+        <Sidebar />
+        {state.showDashboard ? <Dashboard /> : <ChatArea />}
+      </div>
+      <ThemeToggle />
+    </div>
+  );
+};
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <ChatProvider>
+      <AppContent />
+    </ChatProvider>
   );
 };
 
